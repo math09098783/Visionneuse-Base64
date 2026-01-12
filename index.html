@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Visionneuse Base64</h2>
+    <textarea id="input" rows="10" cols="50" placeholder="Collez le code Base64 ici..."></textarea><br>
+    <button onclick="voir()">Afficher l'image</button>
+    <hr>
+    <img id="rendu" style="max-width: 500px; border: 1px solid #ccc;">
+
+    <script>
+        function voir() {
+            let str = document.getElementById('input').value.trim();
+            // Ajoute le préfixe si l'utilisateur l'a oublié
+            if(!str.startsWith('data:image')) {
+                str = 'data:image/png;base64,' + str;
+            }
+            document.getElementById('rendu').src = str;
+        }
+    </script>
+</body>
+</html>
